@@ -3,7 +3,7 @@ package Qsort;
 import java.util.Scanner;
 
 /**
- * Created by Natalia on 28.03.2015.
+ * Created by Natalia .
  */
 public class Sort {
 
@@ -12,13 +12,14 @@ public class Sort {
     static int array_int;
     static int length;
     static String input;
-    static boolean tr ;
+
 
     public static void main(String[] args) {
 
-        System.out.println("Please,enter the array, exemple-->>>1,3,4<<<--");
+        
 
             do {
+                System.out.println("Please,enter the array, exemple-->>>1,3,4<<<--");
                 Scanner scaner = new Scanner(System.in);
                 input = scaner.next();
                 length = input.length();
@@ -55,7 +56,7 @@ public class Sort {
                     //Сортування за допомогою фунції
                     System.out.println("Array is sorting!--->>");
                     myQSort(intArrayMain,0,intArrayMain.length-1 );
-                    for (int v : intArray){
+                    for (int v : intArrayMain){
                         System.out.print(v + " ");}
                     String sc = new String();
 
@@ -65,7 +66,7 @@ public class Sort {
             }while (true);
 }
         //функції сортування масиву
-        static void swap(int[] array, int left, int right) {
+        static void sort(int[] array, int left, int right) {
             int tmp = array[left];
             array[left] = array[right];
             array[right] = tmp;
@@ -75,13 +76,13 @@ public class Sort {
             if (left >= right)
                 return;
 
-            swap(array, left, (left + right) / 2);
+            sort(array, left, (left + right) / 2);
             int last = left;
             for (int i = last + 1; i <= right; ++i)
                 if (array[i]>=array[left])
-                    swap(array, ++last, i);
+                    sort(array, ++last, i);
 
-            swap(array, left, last);
+            sort(array, left, last);
             myQSort(array, left, last - 1);
             myQSort(array, last + 1, right);
         }
